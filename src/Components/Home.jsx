@@ -5,12 +5,13 @@ import Header from './partials/Header'
 import axios from '../utils/Axios'
 import Loading from './Loading'
 import HorizontalCards from './partials/HorizontalCards'
+import DropDown from './partials/DropDown'
 
 function Home() {
   document.title = "FilmFlicks | Homepage";
   const [wallpaper, setwallpaper] = useState(null)
   const [trending, settrending] = useState(null) // ye trending ki api fetch krega 
-  // const [category, setcategory] = useState("all") // ye tab tab fetch karega jab banda all, movie , tv pe select karega 
+  const [category, setcategory] = useState("all") // ye tab tab fetch karega jab banda all, movie , tv pe select karega 
 
   // wallpaper = null
 
@@ -29,7 +30,7 @@ function Home() {
   }
   const GetTrending = async () => {
     try {
-      const { data } = await axios.get(`/trending/all/day`);
+      const { data } = await axios.get(`/trending/${category}/day`);
       // console.log(data);
       settrending(data.results)
     }
@@ -41,7 +42,7 @@ function Home() {
   useEffect(() => {
     GetTrending()
     GetHeaderwallpaper()
-  }, [])
+  }, [category])
 
   return wallpaper ? (
     <>
@@ -54,9 +55,10 @@ function Home() {
         <div className='flex justify-between p-4'>
           <h1 className='text-4xl font-bold text-white'>🔥 Trending Now</h1>
           <br />
+          <DropDown title="Filter" options={["tv", "movie", "all"]} func={(e) => setcategory(e.target.value)} />
 
         </div>
-        <HorizontalCards data={trending}/>
+        <HorizontalCards data={trending} />
       </div>
     </>
   ) : <h1 className='text-3xl text-white'><Loading /></h1>
