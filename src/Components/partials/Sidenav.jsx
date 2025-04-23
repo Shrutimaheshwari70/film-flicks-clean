@@ -24,7 +24,7 @@ function Sidenav() {
       <nav className='flex flex-col text-zinc-400 text-xl gap-3'>
         <h1 className='text-white font-semibold text-xl mt-10 mb-5'>Website Information</h1>
 
-        <Link to="/about" className="hover:bg-[#DD4343] hover:text-white duration-300 rounded-lg p-5"><i className="mr-2 ri-information-fill"></i>About Us</Link>
+        <Link to="/aboutus" className="hover:bg-[#DD4343] hover:text-white duration-300 rounded-lg p-5"><i className="mr-2 ri-information-fill"></i>About Us</Link>
 
         <Link to="/contact" className="hover:bg-[#DD4343] hover:text-white duration-300 rounded-lg p-5"><i className="mr-2 ri-contacts-fill"></i>Contact Us</Link>
 
