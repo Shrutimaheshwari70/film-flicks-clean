@@ -69,7 +69,7 @@ function Tvshows() {
           hasMore={hasMore}
           loader={<h1>loading...</h1>}
         >
-          <Cards data={tvshows} />
+          <Cards data={tvshows} title="tv" />
         </InfiniteScroll>
       </div>
     ) : <Loading />
