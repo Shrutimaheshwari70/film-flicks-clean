@@ -1,9 +1,5 @@
 import axios from '../../utils/Axios';
-import { loadtv,removetv } from '../reducers/tvSlice.jsx';
-
-// export { removetv } from '../reducers/tvSlice.jsx';
-
-
+import { loadtv, removetv } from '../reducers/tvSlice';
 
 export const asyncloadtv = (id) => async (dispatch, getState) => {
   try {
@@ -24,12 +20,12 @@ export const asyncloadtv = (id) => async (dispatch, getState) => {
       videos: videos.data,
       watchproviders: watchproviders.data.results.IN,
     };
-    dispatch(loadtv(theultimatedetails))
-    console.log(theultimatedetails)
 
-
-
+    dispatch(loadtv(theultimatedetails));
+    console.log(theultimatedetails);
   } catch (err) {
-    console.log("error", err)
+    console.log("error", err);
   }
-}
+};
+
+export { removetv };
