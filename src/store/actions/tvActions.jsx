@@ -1,7 +1,7 @@
 import axios from '../../utils/Axios';
-import { loadtv } from '../reducers/tvSlice';
+import { loadtv } from '../reducers/tvSlice.jsx';
 
-export { removetv } from '../reducers/tvSlice';
+export { removetv } from '../reducers/tvSlice.jsx';
 
 
 
